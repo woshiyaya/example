@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text">
+    <input type="checkbox" name="" id="">
+    <script>
+        var text = document.querySelector('input');
+        var btn = document.querySelectorAll('input')[1];
+        btn.onclick = function () {
+            // 如果为true
+            if (this.checked) {
+                if (text.value) {
+                    localStorage.setItem('name', text.value);
+                }
+            }
+            // 如果为false
+             else {
+                localStorage.removeItem('name');
+            }   
+   
+}
+if(localStorage.getItem('name')){
+        var nameval = localStorage.getItem('name');
+        text.value = nameval;
+        btn.checked = true;
+    }
+    </script>
+</body>
+
+</html>

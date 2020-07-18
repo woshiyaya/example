@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
+      border: 1px solid #c0c0c0;
+      width: 500px;
+      margin: 100px auto;
+      text-align: center;
+    }
+
+    th {
+      background-color: #09c;
+      font: bold 16px "微软雅黑";
+      color: #fff;
+      height: 24px;
+    }
+
+    td {
+      border: 1px solid #d0d0d0;
+      color: #404060;
+      padding: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <table>
+    <tr>
+      <th>
+        <input type="checkbox" name="" id="checkAll" />全选/全不选
+      </th>
+      <th>菜名</th>
+      <th>商家</th>
+      <th>价格</th>
+    </tr>
+    <tr>
+      <td>
+        <input type="checkbox" name="check" class="ck" />
+      </td>
+      <td>红烧肉</td>
+      <td>隆江猪脚饭</td>
+      <td>￥200</td>
+    </tr>
+    <tr>
+      <td>
+        <input type="checkbox" name="check" class="ck" />
+      </td>
+      <td>香酥排骨</td>
+      <td>隆江猪脚饭</td>
+      <td>￥998</td>
+    </tr>
+    <tr>
+      <td>
+        <input type="checkbox" name="check" class="ck" />
+      </td>
+      <td>北京烤鸭</td>
+      <td>隆江猪脚饭</td>
+      <td>￥88</td>
+    </tr>
+  </table>
+  <script>
+    // 获取事件源
+    var checkAll = document.getElementById('checkAll');
+    // 添加元素类型
+    var cks = document.getElementsByClassName('ck');
+    checkAll.onclick = function (){
+      // 添加事件处理程序
+      // this.checked = true;
+      for(i=0;i<cks.length;i++){
+        cks[i].checked = this.checked;
+      }
+    }
+
+    //  需要先遍历cks,得到具体的每一个复选框，获取事件源
+    for(i=0;i<cks.length;i++){
+   // 添加事件响应程序
+      cks[i].onclick = function(){
+          // 比较cks的个数和cks被选中的个数
+        var count = 0;
+        
+        for(j=0;j<cks.length;j++){
+          cks[j].checked ? count++:null;
+
+        }
+        // 如果选中的个数和cks的个数一样，返回true
+        checkAll.checked = (count== cks.length);
+      }
+    }
+   
+  </script>
+</body>
+
+</html>
